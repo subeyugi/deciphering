@@ -92,19 +92,17 @@ B = toMatrix(kenbanCode2)
 C = toMatrix(kenbanCode3)
 invB = np.round(inv(B) * 12).astype(int)
 
-print(invB)
-""" D = A * inv(B) * 16
-E = np.round(D).astype(int) % 16
+D = A * inv(B)
 for i in range(n):
     s = ""
     for j in range(n):
-        if j % 2 == 0: s += "82"
-        s += str(hex(E[i][j]))[2:]
-    print(s)
- """
+        if D[i][j] > 0: s += "1"
+        else: s += "0"
+    print(f"82{int(s, 2):02x}")
 
-print(f"Color1 : {decodeColor(colorCode1)}") #せぎではないもの
-print(f"Color2 : {decodeColor(colorCode2)}") #��いみもなくかぎ
-print(f"Color3 : {decodeColor(colorCode3)}") #かはたてるこうい
+
+#print(f"Color1 : {decodeColor(colorCode1)}") #せぎではないもの
+#print(f"Color2 : {decodeColor(colorCode2)}") #��いみもなくかぎ
+#print(f"Color3 : {decodeColor(colorCode3)}") #かはたてるこうい
 
 #key : f8a2
